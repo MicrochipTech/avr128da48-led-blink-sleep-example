@@ -1,70 +1,63 @@
-# AVR128DA48 LED Blink with sleep and wake up using a Timer interrupt example
+<a href="https://www.microchip.com" rel="nofollow"><img src="images/Microchip.png" alt="MCHP" width="300"/></a>
 
-This repository provides an Atmel Studio solution with a bare metal code example for an LED blink and sleep application. The AVR-da is woken up from sleep using TCA0 interrupt. 
+# AVR128DA48 LED Blink with Sleep Operation Code Example
 
-This example demonstrates simple toggling on a LED connected to PC6 with a period of 1 second. After toggling the LED, the device enters sleep until it gets woken up by an interrupt from TCA0.
+This repository provides an Atmel Studio solution with a bare metal code example for an LED blink and sleep application. The AVR-da is woken up from sleep using TCA0 interrupt.
+This example demonstrates simple toggling on a LED connected to PC6 with an on/off cycle period of 1 second (the LED will toggle each 500 milliseconds). After toggling the LED, the device enters sleep until it gets woken up by an interrupt from TCA0.
 
-## Configurations
-
-* PC6 - configured as digital output (the on-board user LED)
-* TCA0: 
-	* Normal mode
-	* Input clock Main Clock (4MHz) /256
-	* Overflow interrupt enabled
-	* Period 0x2000
-* CPUINT:
-	* Global interrupt enabled
+## Related Documentation
+More details and code examples on the AVR128DA48 can be found at the following links:
+- [AVR128DA48 Product Page](https://www.microchip.com/wwwproducts/en/AVR128DA28)
+- [AVR128DA48 Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=avr128da48)
+- [AVR128DA48 Project Examples in START](https://start.atmel.com/#examples/AVR128DA48CuriosityNano)
 
 
-## Required Tools 
-
-Software: ATMEL Studio and AVR-DA Device Packs
-
-Hardware: AVR128DA48 Curiosity Nano
+## Software Used
+- Atmel Studio 7.0.2397 or newer [(microchip.com/mplab/avr-support/atmel-studio-7)](https://www.microchip.com/mplab/avr-support/atmel-studio-7)
+- AVR-Dx 1.0.18 or newer Device Pack
 
 
-## Compatibility
-The source code is compatible with the following devices: AVR128DA28, AVR128DA32, AVR128DA48, AVR128DA64, ATmega4808, ATmega3208, ATmega1608, ATmega808, ATmega4809, ATmega3209, ATmega1609, ATmega809.
+## Hardware Used
+- AVR128DA48 Curiosity Nano [(DM164151)](https://www.microchip.com/Developmenttools/ProductDetails/DM164151)
+
+## Setup
+The AVR128DA48 Curiosity Nano Development Board is used as test platform
+<br><img src="images/AVR128DA48_CNANO_instructions.PNG" width="500">
+
+The following configurations must be made for this project:
+
+TCA0:
+- Normal mode
+- Input clock Main Clock (4MHz)/256
+- Overflow interrupt enabled
+- Period 0x2000
+
+CPUINT:
+- Global interrupt enabled
+
+|Pin           | Configuration      |
+| :----------: | :----------------: |
+|PC6 (LED0)    | Digital Output     |
 
 
+## Operation
+
+1. Open the *AVRDA_LED_blink_sleep.atsln* solution in Atmel Studio
+
+2. Build the solution: right click on *AVRDA_LED_blink_sleep* solution and select Build
+<br><img src="images/AVR-DA_led_blink_sleep_build.png" width="500">
+
+3. Select the AVR128DA48 Curiosity Nano on-board debugger in the *Tool* section of the project settings:
+  - Right click on the project and click *Properties*;
+  - Click *Tool* tab on the left panel, select the corresponding debugger and save the configuration (Ctrl + S)
+<br><img src="images/AVR-DA_led_blink_sleep_Tool_settings.png" width="500">
 
 
-## AVR-DA LED blink with sleep and interrupt from timer wake-up
+4. Program the project to the board: select *AVR-DA_LED_blink_PWM* project and click *Start Without Debugging*:
+<br><img src="images/AVR-DA_led_blink_sleep_Program.png" width="500">
 
-#### INTRODUCTION
-This repository contains the project source code for the AVR128DA48 Curiosity Nano development board.
+Demo:
+<br><img src="images/AVR-DA_led_blink_sleep.gif" width="500">
 
-#### EXAMPLE DESCRIPTION
-
-This example demonstrates simple toggling on a LED connected to PC6 with a period of 1 second. After toggling the LED, the device enters sleep until it gets woken up by an interrupt from TCA0.
-
-#### RELATED DOCUMENTS / APPLICATION NOTES
-
-Refer to Mcicrochip developer page for more details.
-
-#### SUPPORTED EVALUATION KIT
-
-AVR128DA48 Curiosity Nano development board.
-
-#### INTERFACE SETTINGS
-
-* Digital Output Pin: 
-	* PC6 as LED0 pin 
-* TCA0: 
-	* Normal mode
-	* Run in Standby enabled
-	* Input clock Main Clock (4MHz) /256
-	* Overflow interrupt enabled
-	* Period 0x2000
-* CPUINT:
-	* Global interrupt enabled
-* SLPCTRL
-	* Standby mode
-
-#### RUNNING THE DEMO
-
-1. Select "EXPORT PROJECT" tab and click "Download Pack" to save the .atzip file.
-2. Import .atzip file into Atmel Studio 7, File->Import->Atmel Start Project.
-3. Build Solution and make sure no compiler error occur.
-4. Press "Start without debugging" or use "CTRL+ALT+F5" hotkeys to run the application.
-
+## Summary
+This example demonstrates simple toggling on a LED connected to PC6 with an on/off cycle period of 1 second (the LED will toggle each 500 milliseconds). After toggling the LED, the device enters sleep until it gets woken up by an interrupt from TCA0.

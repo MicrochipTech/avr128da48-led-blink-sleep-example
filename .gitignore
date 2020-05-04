@@ -1,2 +1,3 @@
-AVRDA_LED_blink_sleep/AVRDA_LED_blink_sleep/Debug
-.vs
+*/AVRDA_LED_blink_sleep/Debug/
+*/AVRDA_LED_blink_sleep/Release/
+*/.vs
